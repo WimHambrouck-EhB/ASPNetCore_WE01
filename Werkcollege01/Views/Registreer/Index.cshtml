@@ -1,0 +1,60 @@
+﻿@{
+    // Title wordt gebruikt om het <title> attribuut te setten in _Layout
+    // en zal dus verschijnen in de titelbalk van de browser of als titel van de tab.
+    ViewData["Title"] = "Registratie";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+    <p>@ViewBag.Email / @ViewBag.Client</p>
+}
+else
+{
+
+    <form asp-action="Registreer" method="post">
+        <table class="table-condensed">
+            <tr>
+                <td>
+                    <label for="email">E-mailadres:</label>
+                </td>
+                <td>
+                    <input class="form-control" id="email" type="text" name="email" value="@ViewBag.Email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="client">Mailclient: </label>
+                </td>
+                <td>
+                    <select class="form-control" id="client" name="mailclient">
+                        @for (int i = 0; i < ViewBag.MailClients?.Count; i++)
+                        {
+                            <option value="@i">@ViewBag.MailClients[i]</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pass">Wachtwoord:</label>
+                </td>
+                <td>
+                    <input class="form-control" type="password" id="pass" name="wachtwoord" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input class="btn btn-primary" type="submit" value="Registreren" />
+                    <input class="btn btn-outline-secondary" type="reset" value="Ik heb me bedacht..." />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+}
