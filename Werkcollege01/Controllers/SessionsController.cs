@@ -5,7 +5,6 @@ namespace Werkcollege01.Controllers
     public class SessionsController : Controller
     {
         public const string KEY_AANTAL_BEZOEKEN = "_AantalBezoeken";
-        public const string KEY_GEBRUIKER = "_Gebruiker";
 
         public IActionResult Index()
         {
