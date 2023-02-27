@@ -15,12 +15,11 @@
 }
 else
 {
-
     <form asp-action="Registreer" method="post">
         <table class="table-condensed">
             <tr>
                 <td>
-                    <label for="email">E-mailadres:</label>
+                    <label for="email" class="col-form-label">E-mailadres:</label>
                 </td>
                 <td>
                     <input class="form-control" id="email" type="text" name="email" value="@ViewBag.Email" />
@@ -28,20 +27,20 @@ else
             </tr>
             <tr>
                 <td>
-                    <label for="client">Mailclient: </label>
+                    <label for="client" class="col-form-label">Mailclient: </label>
                 </td>
                 <td>
-                    <select class="form-control" id="client" name="mailclient">
-                        @for (int i = 0; i < ViewBag.MailClients?.Count; i++)
-                        {
-                            <option value="@i">@ViewBag.MailClients[i]</option>
-                        }
+                    <select class="form-select" id="client" name="mailclient">
+                        <option value="1">Microsoft Outlook</option>
+                        <option value="2">Outlook Express</option>
+                        <option value="3">Thunderbird</option>
+                        <option value="0">Other...</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="pass">Wachtwoord:</label>
+                    <label for="pass" class="col-form-label">Wachtwoord:</label>
                 </td>
                 <td>
                     <input class="form-control" type="password" id="pass" name="wachtwoord" />
@@ -56,5 +55,4 @@ else
             </tr>
         </table>
     </form>
-
 }
