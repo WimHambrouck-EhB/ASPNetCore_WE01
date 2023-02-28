@@ -1,0 +1,44 @@
+﻿@model Pizza
+
+@{
+    ViewData["Title"] = "Pizza bestellen";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Toon" asp-controller="Pizza" method="post">
+    <div class="mb-3">
+        <label asp-for="Besteller" class="form-label"></label>
+        <input asp-for="Besteller" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Soort" class="form-label"></label>
+        <input asp-for="Soort" class="form-control" />
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="ExtraKaas" class="form-check-input">
+        <label asp-for="ExtraKaas" class="form-check-label">Extra kaas</label>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Betaalwijze" class="control-label"></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="Betaalwijze" id="cash" value="Cash">
+        <label class="form-check-label" for="cash">
+            Cash
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="Betaalwijze" id="bc" value="Bancontact">
+        <label class="form-check-label" for="bc">
+            Bancontact
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="Betaalwijze" id="eft" value="Overschrijving">
+        <label class="form-check-label" for="eft">
+            Overschrijving
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

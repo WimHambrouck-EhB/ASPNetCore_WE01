@@ -1,0 +1,54 @@
+﻿@model Pizza
+
+@{
+    List<string> errors = (List<string>)ViewBag.Errors;
+}
+
+<h2>Bestelgegevens</h2>
+
+@if (errors.Count > 0)
+{
+    @foreach (var error in errors)
+    {
+        <div class="alert alert-danger" role="alert">
+            @error
+        </div>
+    }
+}
+else
+{
+    <div>
+        <h4>Pizza</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Besteller)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Besteller)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Soort)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Soort)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ExtraKaas)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ExtraKaas)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Betaalwijze)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Betaalwijze)
+            </dd>
+        </dl>
+    </div>
+}
+<div>
+    <a asp-action="Bestellen">Terug naar bestelformulier...</a>
+</div>
+
